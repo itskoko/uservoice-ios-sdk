@@ -48,47 +48,36 @@
 #pragma mark ===== UITableViewDataSource Methods =====
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section {
-    return (section == 0) ? 2 : _fields.count;
+    return _fields.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier;
     BOOL selectable = NO;
-    if (indexPath.section == 0) {
-        identifier = (indexPath.row == 0) ? @"Email" : @"Name";
+    NSDictionary *field = _fields[indexPath.row];
+    if ([field[@"values"] count] > 0) {
+      identifier = @"PredefinedField";
+      selectable = YES;
     } else {
-        NSDictionary *field = _fields[indexPath.row];
-        if ([field[@"values"] count] > 0) {
-            identifier = @"PredefinedField";
-            selectable = YES;
-        } else {
-            identifier = @"FreeformField";
-        }
+      identifier = @"FreeformField";
     }
     return [self createCellForIdentifier:identifier tableView:theTableView indexPath:indexPath style:UITableViewCellStyleDefault selectable:selectable];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return 44;
-    } else {
-        NSDictionary *field = _fields[indexPath.row];
-        if ([field[@"values"] count] > 0) {
-            return [self heightForDynamicRowWithReuseIdentifier:@"PredefinedField" indexPath:indexPath];
-        } else {
-            return 60;
-        }
-    }
+  NSDictionary *field = _fields[indexPath.row];
+  if ([field[@"values"] count] > 0) {
+    return [self heightForDynamicRowWithReuseIdentifier:@"PredefinedField" indexPath:indexPath];
+  } else {
+    return 60;
+  }
 }
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section != 1) {
-        return;
-    }
     NSDictionary *field = _fields[indexPath.row];
     if ([field[@"values"] count] > 0) {
         UVValueSelectViewController *next = [[UVValueSelectViewController alloc] initWithField:field valueDictionary:_selectedFieldValues];
@@ -179,7 +168,7 @@
 #pragma mark ===== Misc =====
 
 - (void)send {
-    [_delegate sendWithEmail:_emailField.text name:_nameField.text fields:_selectedFieldValues];
+    [_delegate sendWithEmail:self.userEmail name:self.userName fields:_selectedFieldValues];
 }
 
 - (void)showActivityIndicator {
