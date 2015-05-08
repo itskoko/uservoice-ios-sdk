@@ -97,7 +97,7 @@
     label.tag = LABEL;
     label.font = [UIFont systemFontOfSize:13];
     if (IOS7) {
-        label.textColor = label.tintColor;
+        label.textColor = [UVStyleSheet instance].tintColor;
     }
     UILabel *value = [UILabel new];
     value.tag = VALUE;
@@ -129,7 +129,7 @@
     label.tag = LABEL;
     label.font = [UIFont systemFontOfSize:13];
     if (IOS7) {
-        label.textColor = label.tintColor;
+        label.textColor = [UVStyleSheet instance].tintColor;
     }
     UITextField *text = [UITextField new];
     text.tag = TEXT;
@@ -147,6 +147,7 @@
     UITextField *text = (UITextField *)[cell viewWithTag:TEXT];
     label.text = field[@"required"] ? [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"%@ (required)", @"UserVoice", [UserVoice bundle], nil), field[@"name"]] : field[@"name"];
     text.text = _selectedFieldValues[field[@"name"]][@"label"];
+    text.textColor = [UVStyleSheet instance].tintColor;
     [[NSNotificationCenter defaultCenter] addObserverForName:UITextFieldTextDidChangeNotification object:text queue:nil usingBlock:^(NSNotification *note) {
         self->_selectedFieldValues[field[@"name"]] = @{ @"id" : text.text, @"label" : text.text};
     }];
