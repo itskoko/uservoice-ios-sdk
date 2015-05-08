@@ -60,7 +60,7 @@
 
     UILabel *desc = [UILabel new];
     desc.backgroundColor = [UIColor clearColor];
-    desc.text = NSLocalizedStringFromTableInBundle(@"When you post an idea on our forum, others will be able to subscribe to it and make comments. When we respond to the idea, you'll get notified.", @"UserVoice", [UserVoice bundle], nil);
+    desc.text = NSLocalizedStringFromTableInBundle(@"This forum is a place to share thoughts and ideas about how to improve Koko. It’s not a place to discuss personal issues. As always, please remember that Koko is a supportive community. Always be kind.", @"UserVoice", [UserVoice bundle], nil);
     desc.textColor = [UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:1.0f];
     desc.numberOfLines = 0;
     desc.font = [UIFont systemFontOfSize:12];
