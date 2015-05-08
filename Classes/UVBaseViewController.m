@@ -253,6 +253,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:identifier];
         cell.selectionStyle = selectable ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
+        cell.textLabel.tintColor = [UVStyleSheet instance].tintColor;
 
         SEL initCellSelector = NSSelectorFromString([NSString stringWithFormat:@"initCellFor%@:indexPath:", identifier]);
         if ([self respondsToSelector:initCellSelector]) {
