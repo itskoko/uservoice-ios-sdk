@@ -100,7 +100,7 @@
     view.backgroundColor = [UIColor whiteColor];
 
     _fieldsView = [UVTextWithFieldsView new];
-    _fieldsView.textView.placeholder = NSLocalizedStringFromTableInBundle(@"Write a comment...", @"UserVoice", [UserVoice bundle], nil);
+    _fieldsView.textView.placeholder = NSLocalizedStringFromTableInBundle(@"Write a comment. Please be kind.", @"UserVoice", [UserVoice bundle], nil);
     if (![UVSession currentSession].user) {
         _emailField = [_fieldsView addFieldWithLabel:NSLocalizedStringFromTableInBundle(@"Email", @"UserVoice", [UserVoice bundle], nil)];
         _emailField.placeholder = NSLocalizedStringFromTableInBundle(@"(required)", @"UserVoice", [UserVoice bundle], nil);
