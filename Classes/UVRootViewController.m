@@ -66,7 +66,7 @@
 - (void)loadView {
     [super loadView];
 
-    self.navigationItem.title = NSLocalizedStringFromTableInBundle(@"Feedback & Support", @"UserVoice", [UserVoice bundle], nil);
+    self.navigationItem.title = NSLocalizedStringFromTableInBundle(@"Help Improve Koko", @"UserVoice", [UserVoice bundle], nil);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle(@"Close", @"UserVoice", [UserVoice bundle], nil)
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
