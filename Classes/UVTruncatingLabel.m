@@ -97,7 +97,7 @@
 }
 
 - (CGFloat)effectiveWidth {
-    return MAX(self.frame.size.width, self.preferredMaxLayoutWidth) - 4;
+    return MAX(self.frame.size.width, self.preferredMaxLayoutWidth) - 6;
 }
 
 - (void)layoutSubviews {
