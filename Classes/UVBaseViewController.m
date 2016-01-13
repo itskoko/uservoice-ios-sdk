@@ -173,13 +173,13 @@
     UIView *power = [UIView new];
     power.frame = CGRectMake(0, 0, 0, 80);
     UILabel *uv = [UILabel new];
-    uv.text = NSLocalizedStringFromTableInBundle(@"Powered by UserVoice", @"UserVoice", [UserVoice bundle], nil);
+    // uv.text = NSLocalizedStringFromTableInBundle(@"Powered by UserVoice", @"UserVoice", [UserVoice bundle], nil);
     uv.font = [UIFont systemFontOfSize:13];
     uv.textColor = [UIColor grayColor];
     uv.backgroundColor = [UIColor clearColor];
     uv.textAlignment = NSTextAlignmentCenter;
     UILabel *version = [UILabel new];
-    version.text = [NSString stringWithFormat:@"iOS SDK v%@", [UserVoice version]];
+    // version.text = [NSString stringWithFormat:@"iOS SDK v%@", [UserVoice version]];
     version.font = [UIFont systemFontOfSize:13];
     version.textColor = [UIColor lightGrayColor];
     version.textAlignment = NSTextAlignmentCenter;

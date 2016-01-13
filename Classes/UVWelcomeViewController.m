@@ -54,7 +54,7 @@
 
 - (void)initCellForForum:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [UIColor whiteColor];
-    cell.textLabel.text = NSLocalizedStringFromTableInBundle(@"Feedback Forum", @"UserVoice", [UserVoice bundle], nil);
+    cell.textLabel.text = NSLocalizedStringFromTableInBundle(@"Help Improve Koko", @"UserVoice", [UserVoice bundle], nil);
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
@@ -223,7 +223,7 @@
     else if ([UVSession currentSession].config.topicId)
         return [((UVHelpTopic *)[[UVSession currentSession].topics objectAtIndex:0]) name];
     else
-        return NSLocalizedStringFromTableInBundle(@"Knowledge Base", @"UserVoice", [UserVoice bundle], nil);
+        return NSLocalizedStringFromTableInBundle(@"FAQ", @"UserVoice", [UserVoice bundle], nil);
 }
 
 - (CGFloat)tableView:(UITableView *)theTableView heightForHeaderInSection:(NSInteger)section {
